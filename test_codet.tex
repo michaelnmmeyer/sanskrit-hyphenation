@@ -1,0 +1,16 @@
+\documentclass{article}
+
+\usepackage{testhyphens}
+\usepackage{polyglossia}
+\setdefaultlanguage[Script=Latin]{sanskrit}
+% For some reason, polyglossia wants us to define a devanāgarī font, even if
+% we don't actually write in nāgarī.
+\usepackage{fontspec}
+\newfontfamily\devanagarifont{Chandas}
+\pagestyle{empty}
+
+\begin{document}
+\begin{testhyphens}{}
+\input{test_text}
+\end{testhyphens}
+\end{document}
