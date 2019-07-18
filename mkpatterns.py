@@ -13,10 +13,11 @@ for p in VOWELS.copy():
    VOWELS.append(normalize("NFC", p + "\N{COMBINING GRAVE ACCENT}"))
 
 # Other ways to write liquids
-for c in "r", "l":
-   c += "\N{COMBINING RING BELOW}"
-   VOWELS.append(normalize("NFC", c))
-   VOWELS.append(normalize("NFC", c + "\N{COMBINING MACRON}"))
+for p in VOWELS.copy():
+   p = normalize("NFD", p)
+   p2 = p.replace("\N{COMBINING DOT BELOW}", "\N{COMBINING RING BELOW}")
+   if p2 != p:
+      VOWELS.append(normalize("NFC", p2))
 
 SPECIALS = ["ṃ", "ṁ", "m̐", "ḥ", "ẖ", "ḫ"]
 
